@@ -3,50 +3,98 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Priya ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For My Priya ❤️</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;min-height:100vh;background:radial-gradient(circle at top,#79304f,#1a0917 70%);color:#fff0f5;font-family:Georgia,serif;text-align:center;padding:24px;display:grid;place-items:center}
-.card{max-width:440px;width:100%;padding:30px 22px;border:1px solid #ffffff44;border-radius:24px;background:#ffffff0c;box-shadow:0 0 45px #f56b9b22}
-.heart{font-size:45px;animation:pulse 1.4s infinite}
-h1{color:#ffc2d9;font-size:32px}
-p{line-height:1.8}
-button{border:0;border-radius:30px;padding:14px 22px;background:#ffc2d9;color:#40142a;font-size:16px;margin:8px}
+body{margin:0;background:linear-gradient(160deg,#160914,#61213f,#200b1c);color:#fff0f6;font-family:Georgia,serif;text-align:center}
+main{max-width:600px;margin:auto;padding:24px 16px}
+.card{background:#ffffff10;border:1px solid #ffffff35;border-radius:24px;padding:25px 18px;margin:20px 0;box-shadow:0 8px 30px #0003}
+h1{font-size:36px;color:#ffc4dc}
+h2{color:#ffc4dc}
+p{line-height:1.9}
+button{border:0;border-radius:30px;padding:14px 22px;background:#ffc4dc;color:#401329;font-size:16px;margin:12px 0}
+.heart{font-size:48px;animation:pulse 1.3s infinite}
 .hidden{display:none}
-img,video{width:100%;border-radius:14px;margin-top:12px}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gallery img{width:100%;height:190px;object-fit:cover;border-radius:14px}
+video{width:100%;border-radius:14px}
 @keyframes pulse{50%{transform:scale(1.15)}}
-#letter{white-space:pre-line}
 </style>
 </head>
 <body>
-<main class="card">
+<main>
+<section class="card">
 <div class="heart">❤️</div>
-<h1>Happy Birthday, Priya</h1>
-<p>I've made a little world just for you...</p>
-<button onclick="start()">Open your surprise 💌</button>
-<section id="surprise" class="hidden">
-<h2>To my favourite person 💗</h2>
-<p id="letter">Every moment with you becomes a memory I want to keep forever.
-
-You make ordinary days feel special. Today, I hope you feel as loved as you make me feel.
-
-Happy Birthday, my Priya. Here's to our memories and all the beautiful ones still waiting for us.
-
-Forever yours. ❤️</p>
-<div id="photos"></div>
-<p>Our story is my favourite story. ✨</p>
-<button onclick="hearts()">Send you a thousand hearts 💕</button>
-<div id="hearts"></div>
+<p>A little surprise, made with love</p>
+<h1>Happy Birthday, Priya!</h1>
+<p>For the girl who makes my world beautiful.</p>
+<button onclick="document.getElementById('surprise').classList.remove('hidden');this.style.display='none'">Open your gift 💌</button>
 </section>
+
+<div id="surprise" class="hidden">
+<section class="card">
+<h2>To my favourite person 💗</h2>
+<p>My Priya,</p>
+<p>If I could give you one thing in this world, I would give you the chance to see yourself through my eyes. Only then would you understand how special you are to me.</p>
+<p>Every laugh, every little moment, every memory with you means something to me. I hope your birthday brings you as much happiness as you bring into my life.</p>
+<p>Happy Birthday, my love. Here's to our story and all the memories still waiting for us.</p>
+<p>Forever yours ❤️</p>
+</section>
+
+<section class="card">
+<h2>Our little memories 📸</h2>
+<p>Every picture tells a piece of our story.</p>
+<div class="gallery" id="gallery"></div>
+<p id="photoNote"></p>
+</section>
+
+<section class="card">
+<h2>A special video 🎬</h2>
+<p>Choose a video from your phone to watch here.</p>
+<input type="file" accept="video/*" onchange="showVideo(event)">
+<video id="video" controls class="hidden"></video>
+<p><small>To share the video with Priya, we'll need to upload the video file to the website too.</small></p>
+</section>
+
+<section class="card">
+<h2>One last thing... 💕</h2>
+<p>You are a beautiful part of my life, Priya. I hope we keep making memories together.</p>
+<button onclick="document.getElementById('ending').classList.remove('hidden')">A thousand hugs for you 💋</button>
+<div id="ending" class="hidden">
+<div class="heart">💖💕💗❤️💖</div>
+<h2>I love you, Priya!</h2>
+<p>Happy Birthday, my favourite person 🎂</p>
+</div>
+</section>
+</div>
 </main>
 <script>
-function start(){
-document.getElementById('surprise').classList.remove('hidden');
-}
-function hearts(){
-document.getElementById('hearts').textContent='❤️ 💖 💗 💕 ❤️ 💖 💗 💕 ❤️';
+const photos=[
+"IMG-20251223-WA0002.jpg",
+"IMG-20251226-WA0036.jpg",
+"IMG-20260705-WA0012.jpg",
+"IMG-20260718-WA0032.jpg",
+"IMG-20260728-WA0001.jpg",
+"IMG-20260802-WA0003.jpg",
+"IMG-20260816-WA0020.jpg"
+];
+const gallery=document.getElementById("gallery");
+photos.forEach(name=>{
+const img=document.createElement("img");
+img.src=name;
+img.alt="Our memory";
+img.onerror=()=>img.remove();
+gallery.appendChild(img);
+});
+function showVideo(e){
+const file=e.target.files[0];
+if(!file)return;
+const v=document.getElementById("video");
+v.src=URL.createObjectURL(file);
+v.classList.remove("hidden");
 }
 </script>
 </body>
-</html>
+  </html>
+  
