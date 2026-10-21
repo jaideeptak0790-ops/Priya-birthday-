@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Priya ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at top,#79304f,#1a0917 70%);color:#fff0f5;font-family:Georgia,serif;text-align:center;padding:24px;display:grid;place-items:center}
+.card{max-width:440px;width:100%;padding:30px 22px;border:1px solid #ffffff44;border-radius:24px;background:#ffffff0c;box-shadow:0 0 45px #f56b9b22}
+.heart{font-size:45px;animation:pulse 1.4s infinite}
+h1{color:#ffc2d9;font-size:32px}
+p{line-height:1.8}
+button{border:0;border-radius:30px;padding:14px 22px;background:#ffc2d9;color:#40142a;font-size:16px;margin:8px}
+.hidden{display:none}
+img,video{width:100%;border-radius:14px;margin-top:12px}
+@keyframes pulse{50%{transform:scale(1.15)}}
+#letter{white-space:pre-line}
+</style>
+</head>
+<body>
+<main class="card">
+<div class="heart">❤️</div>
+<h1>Happy Birthday, Priya</h1>
+<p>I've made a little world just for you...</p>
+<button onclick="start()">Open your surprise 💌</button>
+<section id="surprise" class="hidden">
+<h2>To my favourite person 💗</h2>
+<p id="letter">Every moment with you becomes a memory I want to keep forever.
+
+You make ordinary days feel special. Today, I hope you feel as loved as you make me feel.
+
+Happy Birthday, my Priya. Here's to our memories and all the beautiful ones still waiting for us.
+
+Forever yours. ❤️</p>
+<div id="photos"></div>
+<p>Our story is my favourite story. ✨</p>
+<button onclick="hearts()">Send you a thousand hearts 💕</button>
+<div id="hearts"></div>
+</section>
+</main>
+<script>
+function start(){
+document.getElementById('surprise').classList.remove('hidden');
+}
+function hearts(){
+document.getElementById('hearts').textContent='❤️ 💖 💗 💕 ❤️ 💖 💗 💕 ❤️';
+}
+</script>
+</body>
+</html>
