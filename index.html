@@ -3,73 +3,145 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>For My Priya ❤️</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>For Priya, With Love ❤️</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:linear-gradient(160deg,#160914,#61213f,#200b1c);color:#fff0f6;font-family:Georgia,serif;text-align:center}
-main{max-width:600px;margin:auto;padding:24px 16px}
-.card{background:#ffffff10;border:1px solid #ffffff35;border-radius:24px;padding:25px 18px;margin:20px 0;box-shadow:0 8px 30px #0003}
-h1{font-size:36px;color:#ffc4dc}
-h2{color:#ffc4dc}
-p{line-height:1.9}
-button{border:0;border-radius:30px;padding:14px 22px;background:#ffc4dc;color:#401329;font-size:16px;margin:12px 0}
-.heart{font-size:48px;animation:pulse 1.3s infinite}
-.hidden{display:none}
-.gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.gallery img{width:100%;height:190px;object-fit:cover;border-radius:14px}
-video{width:100%;border-radius:14px}
-@keyframes pulse{50%{transform:scale(1.15)}}
+:root{--pink:#ffb4cf;--gold:#f7d99b}
+body{margin:0;background:#10070e;color:#fff2f6;font-family:Georgia,serif}
+button,input{font:inherit}
+button{cursor:pointer}
+.screen{min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:25px 18px;position:relative;overflow:hidden}
+.inner{width:100%;max-width:540px;position:relative;z-index:2}
+.eyebrow{letter-spacing:4px;text-transform:uppercase;font:10px Arial,sans-serif;color:var(--gold)}
+h1{font-size:clamp(38px,10vw,64px);line-height:1.05;color:var(--pink);font-weight:normal;margin:18px 0}
+h2{font-size:30px;color:var(--pink);font-weight:normal}
+p{line-height:1.9;color:#f4dfe8}
+button.primary{background:linear-gradient(120deg,#ffe3ed,#ff9fc4);color:#421629;border:0;border-radius:40px;padding:15px 25px;margin:12px 4px;box-shadow:0 0 28px #ff8eb744}
+button.secondary{background:transparent;color:#ffe2ed;border:1px solid #ffb4cf77;border-radius:30px;padding:12px 20px}
+.hero{background:radial-gradient(ellipse at center,#562039 0,#21101d 48%,#10070e 78%)}
+.glow{font-size:55px;animation:float 3s ease-in-out infinite}
+.gift{font-size:110px;display:block;filter:drop-shadow(0 0 25px #ff75b5);animation:float 2.5s infinite}
+.pin{width:150px;background:#ffffff12;border:1px solid #ffb4cf66;border-radius:12px;color:white;padding:13px;text-align:center;letter-spacing:5px}
+.note{font-size:18px;line-height:2;white-space:pre-line}
+.panel{border:1px solid #ffb4cf38;background:#ffffff08;padding:24px;border-radius:22px;margin:20px auto}
+.hidden{display:none!important}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+.memory{margin:0;background:#fff;padding:7px 7px 16px;color:#4b2436;transform:rotate(-1deg)}
+.memory:nth-child(even){transform:rotate(2deg)}
+.memory img{display:block;width:100%;height:190px;object-fit:cover;background:#311522}
+.memory figcaption{padding-top:10px;font-size:13px}
+video{width:100%;border-radius:15px;margin-top:15px}
+input[type=file]{max-width:100%;font-size:12px}
+#floaties{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:5}
+.heartfloat{position:absolute;bottom:-30px;animation:rise 6s linear forwards}
+#toast{color:var(--gold);min-height:24px}
+@keyframes float{50%{transform:translateY(-12px)}}
+@keyframes rise{to{transform:translateY(-110vh) rotate(30deg);opacity:0}}
+@media(max-width:360px){.gallery{grid-template-columns:1fr}.memory img{height:240px}}
 </style>
 </head>
 <body>
-<main>
-<section class="card">
-<div class="heart">❤️</div>
-<p>A little surprise, made with love</p>
-<h1>Happy Birthday, Priya!</h1>
-<p>For the girl who makes my world beautiful.</p>
-<button onclick="document.getElementById('surprise').classList.remove('hidden');this.style.display='none'">Open your gift 💌</button>
+<div id="floaties"></div>
+
+<section class="screen hero" id="opening">
+<div class="inner">
+<div class="eyebrow">A little universe made for you</div>
+<div class="glow">✦ ✧ ✦</div>
+<span class="gift">🎁</span>
+<h1>For my Priya</h1>
+<p>There is something waiting for you.<br>A little surprise, made with all my heart.</p>
+<button class="primary" onclick="openGift()">Open your gift 💗</button>
+<p class="eyebrow">Made with love · Just for you</p>
+</div>
 </section>
 
-<div id="surprise" class="hidden">
-<section class="card">
-<h2>To my favourite person 💗</h2>
-<p>My Priya,</p>
-<p>If I could give you one thing in this world, I would give you the chance to see yourself through my eyes. Only then would you understand how special you are to me.</p>
-<p>Every laugh, every little moment, every memory with you means something to me. I hope your birthday brings you as much happiness as you bring into my life.</p>
-<p>Happy Birthday, my love. Here's to our story and all the memories still waiting for us.</p>
-<p>Forever yours ❤️</p>
+<section class="screen hidden" id="secret" style="background:radial-gradient(ellipse,#492037,#10070e 75%)">
+<div class="inner">
+<div class="glow">🔐</div>
+<h2>A little secret</h2>
+<p>Every love story has a secret door.<br>Enter our special number to unlock yours.</p>
+<input class="pin" id="pin" type="password" inputmode="numeric" maxlength="4" placeholder="••••">
+<br><button class="primary" onclick="unlock()">Unlock my surprise ✨</button>
+<p style="font-size:12px">Hint: If you prefer, leave the PIN blank and tap unlock.</p>
+<p id="pinError"></p>
+</div>
 </section>
 
-<section class="card">
-<h2>Our little memories 📸</h2>
-<p>Every picture tells a piece of our story.</p>
+<section class="screen hidden" id="story" style="background:linear-gradient(#190c17,#321326,#10070e)">
+<div class="inner">
+<div class="eyebrow">Chapter one</div>
+<div class="glow">🌙</div>
+<h1>My favourite story<br>is us.</h1>
+<p>Of all the people in this world, I'm so glad our paths crossed. It's the little moments with you that become the biggest memories in my heart.</p>
+<button class="primary" onclick="showPage('memories')">Take me to our memories →</button>
+</div>
+</section>
+
+<section class="screen hidden" id="memories" style="background:linear-gradient(#10070e,#2b1223)">
+<div class="inner">
+<div class="eyebrow">Chapter two · Our little moments</div>
+<h1>Remember when? 📸</h1>
+<p>Every photo is a tiny time machine. Here are some pieces of our story.</p>
 <div class="gallery" id="gallery"></div>
-<p id="photoNote"></p>
-</section>
-
-<section class="card">
-<h2>A special video 🎬</h2>
-<p>Choose a video from your phone to watch here.</p>
-<input type="file" accept="video/*" onchange="showVideo(event)">
-<video id="video" controls class="hidden"></video>
-<p><small>To share the video with Priya, we'll need to upload the video file to the website too.</small></p>
-</section>
-
-<section class="card">
-<h2>One last thing... 💕</h2>
-<p>You are a beautiful part of my life, Priya. I hope we keep making memories together.</p>
-<button onclick="document.getElementById('ending').classList.remove('hidden')">A thousand hugs for you 💋</button>
-<div id="ending" class="hidden">
-<div class="heart">💖💕💗❤️💖</div>
-<h2>I love you, Priya!</h2>
-<p>Happy Birthday, my favourite person 🎂</p>
+<p id="photoStatus"></p>
+<p class="eyebrow">If a photo is missing, check its filename in the code.</p>
+<button class="primary" onclick="showPage('letter')">One more thing, my love →</button>
 </div>
 </section>
+
+<section class="screen hidden" id="letter" style="background:radial-gradient(ellipse,#4c1c35,#10070e 75%)">
+<div class="inner">
+<div class="eyebrow">Chapter three · A letter for you</div>
+<div class="glow">💌</div>
+<h1>Dear Priya,</h1>
+<div class="panel note" id="letterText">My favourite person,
+
+If I could give you one thing, it would be the chance to see yourself through my eyes. Then you would understand how special you are to me.
+
+Thank you for the memories, the smiles, and the little moments that mean more than words can explain.
+
+On your birthday, I hope you feel loved, celebrated, and reminded of how much you matter to me.
+
+This is our story, and I hope we have so many beautiful chapters left to write together.
+
+Happy Birthday, my Priya. ❤️
+
+Always yours.</div>
+<button class="primary" onclick="showPage('videoPage')">Our next memory 🎬 →</button>
 </div>
-</main>
+</section>
+
+<section class="screen hidden" id="videoPage" style="background:linear-gradient(#10070e,#321326)">
+<div class="inner">
+<div class="eyebrow">A little movie of us</div>
+<h1>Press play 🎬</h1>
+<p>Choose your favourite video from your phone to preview it here.</p>
+<div class="panel">
+<input type="file" accept="video/*" onchange="loadVideo(event)">
+<video id="video" class="hidden" controls playsinline></video>
+<p style="font-size:12px">For Priya to watch the video too, the video file must also be uploaded online.</p>
+</div>
+<button class="primary" onclick="showPage('finale')">One last surprise 💝</button>
+</div>
+</section>
+
+<section class="screen hidden hero" id="finale">
+<div class="inner">
+<div class="eyebrow">The final chapter</div>
+<div class="glow">💖 ✨ 💖</div>
+<h1>Happy Birthday,<br>my Priya.</h1>
+<p>Of all the things life could give me,<br>I'm grateful for the memories we share.</p>
+<button class="primary" onclick="celebrate()">Make a wish together ✨</button>
+<h2 id="finalMessage"></h2>
+<p id="toast"></p>
+<button class="secondary" onclick="showPage('opening')">Relive our story ↻</button>
+</div>
+</section>
+
 <script>
+/* Change these names to match your exact uploaded GitHub photo filenames.
+   Keep the quotation marks and commas. */
 const photos=[
 "IMG-20251223-WA0002.jpg",
 "IMG-20251226-WA0036.jpg",
@@ -79,22 +151,75 @@ const photos=[
 "IMG-20260802-WA0003.jpg",
 "IMG-20260816-WA0020.jpg"
 ];
+
+const captions=[
+"The beginning of another beautiful memory 💗",
+"My favourite person ❤️",
+"A moment I want to keep forever ✨",
+"Just us, just right 💕",
+"One for the memory book 🌷",
+"Little moments, big feelings 💖",
+"More memories still to come 🌙"
+];
+
 const gallery=document.getElementById("gallery");
-photos.forEach(name=>{
+let loaded=0;
+
+photos.forEach((name,i)=>{
+const fig=document.createElement("figure");
+fig.className="memory";
 const img=document.createElement("img");
 img.src=name;
 img.alt="Our memory";
-img.onerror=()=>img.remove();
-gallery.appendChild(img);
+img.loading="lazy";
+img.onerror=()=>fig.remove();
+img.onload=()=>{loaded++;document.getElementById("photoStatus").textContent=loaded+" memory photo(s) loaded ❤️";};
+const cap=document.createElement("figcaption");
+cap.textContent=captions[i]||"Our memory ❤️";
+fig.append(img,cap);
+gallery.appendChild(fig);
 });
-function showVideo(e){
-const file=e.target.files[0];
-if(!file)return;
+
+function showPage(id){
+document.querySelectorAll("body > section").forEach(s=>s.classList.add("hidden"));
+document.getElementById(id).classList.remove("hidden");
+window.scrollTo(0,0);
+if(id==="story")makeHearts(8);
+}
+function openGift(){showPage("secret");makeHearts(12)}
+function unlock(){
+const p=document.getElementById("pin").value;
+if(p===""){showPage("story")}
+else{
+document.getElementById("pinError").textContent="Try leaving the PIN blank and tap unlock 💗";
+}
+}
+function makeHearts(n){
+const box=document.getElementById("floaties");
+for(let i=0;i<n;i++){
+const h=document.createElement("span");
+h.className="heartfloat";
+h.textContent=["💗","💕","✨","❤️"][Math.floor(Math.random()*4)];
+h.style.left=Math.random()*100+"%";
+h.style.animationDelay=Math.random()*2+"s";
+h.style.fontSize=(16+Math.random()*20)+"px";
+box.appendChild(h);
+setTimeout(()=>h.remove(),7000);
+}
+}
+function loadVideo(e){
+const f=e.target.files[0];
+if(!f)return;
 const v=document.getElementById("video");
-v.src=URL.createObjectURL(file);
+v.src=URL.createObjectURL(f);
 v.classList.remove("hidden");
+v.play().catch(()=>{});
+}
+function celebrate(){
+makeHearts(45);
+document.getElementById("finalMessage").textContent="I love you, Priya! 🎂❤️";
+document.getElementById("toast").textContent="May this year bring you a thousand reasons to smile.";
 }
 </script>
 </body>
-  </html>
-  
+</html>
